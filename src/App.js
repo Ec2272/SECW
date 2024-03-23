@@ -2,7 +2,6 @@ import './App.css';
 import React from 'react';
 import AdminDashboard from './AdminDashboard/AdminDashboard';
 
-
 function App() {
   return (
     <div className="App">
