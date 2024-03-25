@@ -8,7 +8,7 @@ const TicketModal = () => {
     setShowModal(!showModal);
   };
 
-  //This is jst some dummy data forproof of concept. change later
+  //This is jst some dummy data for proof of concept. change later
   const dummyData = {
     ecID: '00000000',
     date: '2024-03-19',
@@ -28,6 +28,9 @@ const TicketModal = () => {
       {showModal && (
         <div className='modal-overlay'>
           <div className='modal'>
+            <button type='button' onClick={toggleModal} className='exit-button'>
+                X
+            </button>
             <div className='modal-content'>
               <h2>EC Application Details</h2>
               <div className='details'>
@@ -40,8 +43,11 @@ const TicketModal = () => {
                 <p><strong>Supporting Documentation:</strong> {dummyData.supportingDocumentation}</p>
               </div>
               <div className='buttons'>
-                <button type='button' onClick={toggleModal} className='close-button'>
-                  Close
+                <button type='button' onClick={toggleModal} className='approve-button'>
+                  Approve
+                </button>
+                <button type='button' onClick={toggleModal} className='disapprove-button'>
+                  Disapprove
                 </button>
                 {/* Additional buttons for admin actions can be added here */}
               </div>
