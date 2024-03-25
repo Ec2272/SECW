@@ -22,14 +22,14 @@ const TicketModal = () => {
   return (
     <>
       <button onClick={toggleModal} className='ticket-button'>
-        View Ticket
+        Check Services
       </button>
 
       {showModal && (
         <div className='modal-overlay'>
           <div className='modal'>
             <button type='button' onClick={toggleModal} className='exit-button'>
-                Check Services
+                X
             </button>
             <div className='modal-content'>
               <h2>EC Application Details</h2>
