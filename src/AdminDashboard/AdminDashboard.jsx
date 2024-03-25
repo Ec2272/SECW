@@ -1,56 +1,24 @@
-import './style.css';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import EcTicketsTable from './EcTicketsTable'; 
+import TicketModal from './TicketModal'; 
 
-const TicketModal = () => {
-  const [showModal, setShowModal] = useState(false);
+const AdminDashboard = () => {
+  const [selectedTicket, setSelectedTicket] = useState(null);
 
-  const toggleModal = () => {
-    setShowModal(!showModal);
+  const handleTicketSelect = (ticket) => {
+    setSelectedTicket(ticket);
   };
 
-  //This is jst some dummy data forproof of concept. change later
-  const dummyData = {
-    ecID: '00000000',
-    date: '2024-03-19',
-    time: '16:00',
-    moduleCode: 'ECS506U',
-    assessmentType: 'Coursework Assignment',
-    description: 'Request for extension due totechnical difficulties',
-    supportingDocumentation: 'evidence_screenshot.pdf',
+  const handleCloseModal = () => {
+    setSelectedTicket(null);
   };
 
   return (
-    <>
-      <button onClick={toggleModal} className='ticket-button'>
-        Ticket
-      </button>
-
-      {showModal && (
-        <div className='modal-overlay'>
-          <div className='modal'>
-            <div className='modal-content'>
-              <h2>EC Application Details</h2>
-              <div className='details'>
-                <p><strong>EC ID Number:</strong> {dummyData.ecID}</p>
-                <p><strong>Date submitted:</strong> {dummyData.date}</p>
-                <p><strong>Time submitted:</strong> {dummyData.time}</p>
-                <p><strong>Module Code:</strong> {dummyData.moduleCode}</p>
-                <p><strong>Assessment Type:</strong> {dummyData.assessmentType}</p>
-                <p><strong>Description:</strong> {dummyData.description}</p>
-                <p><strong>Supporting Documentation:</strong> {dummyData.supportingDocumentation}</p>
-              </div>
-              <div className='buttons'>
-                <button type='button' onClick={toggleModal} className='close-button'>
-                  Close
-                </button>
-                {/* Additional buttons for admin actions can be added here */}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-    </>
+    <div>
+      <EcTicketsTable onTicketSelect={handleTicketSelect} />
+      {selectedTicket && <TicketModal ticket={selectedTicket} onClose={handleCloseModal} />}
+    </div>
   );
 };
 
-export default TicketModal;
+export default AdminDashboard;
