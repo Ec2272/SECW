@@ -29,7 +29,7 @@ const TicketModal = () => {
         <div className='modal-overlay'>
           <div className='modal'>
             <button type='button' onClick={toggleModal} className='exit-button'>
-                X
+                Check Services
             </button>
             <div className='modal-content'>
               <h2>EC Application Details</h2>
