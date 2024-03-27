@@ -22,7 +22,7 @@ const TicketModal = () => {
   return (
     <>
       <button onClick={toggleModal} className='ticket-button'>
-        Ticket
+        View Details for Ticket: 00000000
       </button>
 
       {showModal && (

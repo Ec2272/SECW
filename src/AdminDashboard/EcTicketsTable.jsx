@@ -5,7 +5,7 @@ const EcTicketsTable = ({ onTicketSelect }) => {
 
   const tickets = [
     { ecID: 'EC123', studentID: 'S001', title: 'Extension Request', status: 'Pending' },
- 
+    { ecID: 'EC147', studentID: 'S004', title: 'Alternative Assessment', status: 'Resolved' },
   ];
 
   return (
