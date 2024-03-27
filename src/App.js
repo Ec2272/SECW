@@ -1,13 +1,13 @@
 import './App.css';
 import React from 'react';
-import AdminDashboard from './AdminDashboard/AdminDashboard';
+import TrackTickets from './TrackTickets';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Press button to view ticket</h1>
-        <AdminDashboard />
+        <h1>Ticket Tracking for Students</h1>
+        <TrackTickets/>
       </header>
     </div>
   );
