@@ -8,8 +8,6 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Welcome</h1>
-        <AdminDashboard />
-        <div></div>
         <ServiceStatus/>
       </header>
     </div>

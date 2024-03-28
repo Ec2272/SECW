@@ -8,16 +8,13 @@ const TicketModal = () => {
     setShowModal(!showModal);
   };
 
-  //This is jst some dummy data for proof of concept. change later
-  const dummyData = {
-    ecID: '00000000',
-    date: '2024-03-19',
-    time: '16:00',
-    moduleCode: 'ECS506U',
-    assessmentType: 'Coursework Assignment',
-    description: 'Request for extension due totechnical difficulties',
-    supportingDocumentation: 'evidence_screenshot.pdf',
-  };
+  const services = [
+    { name: 'QMPlus', status: 'Good service' },
+    { name: 'Q-Review', status: 'Partial service' },
+    { name: 'Outlook', status: 'No service' },
+    { name: 'QM GitHub', status: 'Good service' },
+    { name: 'JupyterHub', status: 'Partial service' },
+  ];
 
   return (
     <>
@@ -29,28 +26,19 @@ const TicketModal = () => {
         <div className='modal-overlay'>
           <div className='modal'>
             <button type='button' onClick={toggleModal} className='exit-button'>
-                X
+              X
             </button>
             <div className='modal-content'>
-              <h2>EC Application Details</h2>
-              <div className='details'>
-                <p><strong>EC ID Number:</strong> {dummyData.ecID}</p>
-                <p><strong>Date submitted:</strong> {dummyData.date}</p>
-                <p><strong>Time submitted:</strong> {dummyData.time}</p>
-                <p><strong>Module Code:</strong> {dummyData.moduleCode}</p>
-                <p><strong>Assessment Type:</strong> {dummyData.assessmentType}</p>
-                <p><strong>Description:</strong> {dummyData.description}</p>
-                <p><strong>Supporting Documentation:</strong> {dummyData.supportingDocumentation}</p>
+              <h2>Service Status</h2>
+              <div className='service-list'>
+                {services.map((service, index) => (
+                  <div key={index} className='service-item'>
+                    <p className='service-name'>{service.name}</p>
+                    <p className='service-status'>{service.status}</p>
+                  </div>
+                ))}
               </div>
-              <div className='buttons'>
-                <button type='button' onClick={toggleModal} className='approve-button'>
-                  Approve
-                </button>
-                <button type='button' onClick={toggleModal} className='disapprove-button'>
-                  Disapprove
-                </button>
-                {/* Additional buttons for admin actions can be added here */}
-              </div>
+              {/* Additional content or buttons can be added here */}
             </div>
           </div>
         </div>

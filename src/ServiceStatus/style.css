@@ -1,0 +1,19 @@
+
+  .service-list {
+    margin-top: 20px;
+  }
+  
+  .service-item {
+    margin-bottom: 10px;
+  }
+  
+  .service-name {
+    font-weight: bold;
+    display: inline;
+  }
+  
+  .service-status {
+    margin-left: 5px;
+    display: inline;
+  }
+  
