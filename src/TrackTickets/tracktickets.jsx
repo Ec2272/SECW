@@ -106,7 +106,7 @@ const App = () => {
                   <th>Module Code</th>
                   <th>Date/Time</th>
                   <th>Status</th>
-                  <th>Action</th>
+                  <th>Actions</th>
                   <th>Uploaded Document(s)</th>
                 </tr>
               </thead>
