@@ -1,16 +1,16 @@
-import './App.css';
-import React from 'react';
-import AdminDashboard from './AdminDashboard/AdminDashboard';
+import React from "react";
+import "./App.css";
+import IssueForm from "./IssueForm"; // Import the IssueForm component
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Press button to view ticket</h1>
-        <AdminDashboard />
+        <IssueForm /> {/* Use the IssueForm component */}
       </header>
     </div>
   );
 }
 
 export default App;
+
