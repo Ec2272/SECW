@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./FormStyles.css";
 
 const IssueForm = () => {
@@ -6,6 +6,13 @@ const IssueForm = () => {
     e.preventDefault();
     alert("Form submitted. Check the console for data.");
     console.log(new FormData(e.target));
+  };
+  
+  //file upload stuff for supporting documentation
+  const fileInputRef = useRef(null);
+
+  const handleDocumentUpload = () => {
+    fileInputRef.current.click();
   };
 
   return (
@@ -23,6 +30,11 @@ const IssueForm = () => {
         <div className="form-group">
           <label>Description:</label>
           <textarea name="description" placeholder="Description" required />
+        </div>
+        <div className="form-group">
+          <label>Supporting Documentation:</label>
+          <input type="file" ref={fileInputRef} style={{display: "none"}} />
+          <button type="button" className="upload-button" onClick={handleDocumentUpload}>Upload File(s)</button>
         </div>
         <button type="submit">Submit</button>
       </form>
