@@ -1,6 +1,5 @@
 import './App.css';
 import React from 'react';
-import AdminDashboard from './AdminDashboard/AdminDashboard';
 import ServiceStatus from './ServiceStatus/ServiceStatus';
 
 function App() {
