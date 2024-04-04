@@ -1,0 +1,108 @@
+.table-container {
+    margin: 20px auto;
+    max-width: 960px; 
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; 
+  }
+  
+  table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 0.9rem;
+    color: #333; 
+  }
+  
+  th {
+    background-color: #5D93E1;
+    color: #fff; 
+    font-weight: 600;
+  }
+  
+  td {
+    border-top: 1px solid #eaeff2;
+    line-height: 1.5;
+  }
+  
+  tr:hover {
+    background-color: #f5f7fa; 
+  }
+  
+  .info-button {
+    background-color: #4CAF50; 
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.8rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+    margin-right: 10px;
+  }
+  
+  .info-button:hover {
+    background-color: #45a049;
+  }
+
+  .info-button:last-child {
+    margin-right: 0;
+  }
+
+  .assign-button {
+    background-color: #FFA500; 
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.8rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+    margin-right: 10px;
+  }
+
+  .assign-button:hover {
+    background-color: #FF8C00;
+    margin-right: 0;
+  }
+
+  .assign-button:last-child {
+    margin-right: 0;
+  }
+
+  .not-assigned {
+    color: red;
+  }
+
+  .not-assigned:hover {
+    color: red;
+  }
+  
+ 
+  @media (max-width: 600px) {
+    .table-container {
+      margin: 10px;
+    }
+  
+    th, td {
+      padding: 10px;
+    }
+  
+    .info-button {
+      padding: 6px 12px;
+      font-size: 0.75rem;
+    }
+  }
+  
