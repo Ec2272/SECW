@@ -1,13 +1,12 @@
 import './App.css';
 import React from 'react';
-import AdminDashboard from './AdminDashboard/AdminDashboard';
+import ECForm from './ECForm';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Press button to view ticket</h1>
-        <AdminDashboard />
+      <header className="App">
+        <ECForm /> {/* Render your ECForm component */}
       </header>
     </div>
   );
