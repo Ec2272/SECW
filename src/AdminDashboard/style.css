@@ -21,6 +21,7 @@
 }
 
 .modal {
+  position: relative;
   padding: 30px;
   color: black;
   font-family: 'Inter', Helvetica;
@@ -37,18 +38,50 @@
   text-align: left;
 }
 
-.close-button {
-  background-color: #dc3545;
+.approve-button {
+  background-color: green;
   color: white;
   padding: 10px 20px;
+  margin-right: 10px;
   border-radius: 5px;
   border: none;
   cursor: pointer;
   margin-top: 20px;
 }
 
-.close-button:hover {
+.approve-button:hover {
+  background-color: darkgreen;
+}
+
+.disapprove-button {
+  background-color: #dc3545;
+  color: white;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.disapprove-button:hover {
   background-color: #c82333;
+}
+
+.exit-button {
+  position: absolute;
+  background-color: darkgray;
+  color: white;
+  top: 12px;
+  right: 12px;
+  padding: 10px 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.exit-button:hover {
+  background-color: grey;
 }
 
 .details p {
