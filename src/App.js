@@ -1,13 +1,12 @@
-import './App.css';
 import React from 'react';
-import TrackTickets from './TrackTickets';
+import './App.css';
+import TrackTickets from './TrackTickets/tracktickets';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Ticket Tracking for Students</h1>
-        <TrackTickets/>
+        <TrackTickets />
       </header>
     </div>
   );
