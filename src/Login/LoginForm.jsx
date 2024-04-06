@@ -12,6 +12,7 @@ function Login() {
     if (username === 'admin' && password === 'password') {
       setLoginStatus('Login successful!');
       setIsLoginSuccess(true);
+      window.location.href = '/LandingAdmin';
     }
     else if (username === 'student' && password === 'password') {
       setLoginStatus('Login successful!');

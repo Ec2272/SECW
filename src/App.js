@@ -9,6 +9,7 @@ import './AdminDashboard/style.css';
 
 import LandingStudent from './LandingPages/LandingStudent';
 import LandingFaculty from './LandingPages/LandingFaculty';
+import LandingAdmin from './LandingPages/LandingAdmin';
 import './LandingPages/Landing.css';
 
 import LoginForm from "./Login/LoginForm"
@@ -34,12 +35,14 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 function App() {
 
   return (
+    
 
     <Router>
       <div className="App">
       <header className="App-header">
+
         <Switch>
-          <Route path= "/LoginForm">
+          <Route exact path= "/">
             <LoginForm />
           </Route>
           <Route path="/LandingStudent">
@@ -47,6 +50,9 @@ function App() {
           </Route>
           <Route path="/LandingFaculty">
             <LandingFaculty />
+          </Route>
+          <Route path="/LandingAdmin">
+            <LandingAdmin />
           </Route>
           <Route path = "/ECForm">
             <ECForm />
@@ -62,6 +68,12 @@ function App() {
           </Route>
           <Route path = "/TrackTicket">
             <TrackTickets />
+          </Route>
+          <Route path = "/AdminDashboard">
+            <AdminDashboard />
+          </Route>
+          <Route path = "/AssignTasks">
+            <AdminAssignDashboard />
           </Route>
 
         </Switch>
