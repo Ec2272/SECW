@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import EcTicketsTable from './EcTicketsTable'; 
+import AdminAssign from './AdminAssign'; 
 import TicketModal from './TicketModal'; 
 
 const AdminDashboard = () => {
@@ -15,7 +15,7 @@ const AdminDashboard = () => {
 
   return (
     <div>
-      <EcTicketsTable onTicketSelect={handleTicketSelect} />
+      <AdminAssign onTicketSelect={handleTicketSelect} />
       {selectedTicket && <TicketModal ticket={selectedTicket} onClose={handleCloseModal} />}
     </div>
   );
