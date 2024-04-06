@@ -5,28 +5,52 @@ import './Landing.css';
 
 
 function App(){
+
+    const redirectToECForm = () => {
+        window.location.href = "/ECForm";
+    }
+    
+    const redirectToTrackTicket = () => {
+        window.location.href = "/TrackTicket";
+    }
+
+    const redirectToReportLab = () => {
+        window.location.href = "/ReportLab";
+    }
+
+    const redirectToReportService = () => {
+        window.location.href = "/ReportService";
+    }
+
+    const redirectToCheckService = () => {
+        window.location.href = "/CheckService";
+    }
+
+
+
     return( 
     <body>
         <div className="App">
             <h1> QMUL Student Landing </h1>
 
-            <button type = 'button' variant='contained' className='submitECs'>
+            <button type = 'button' onClick={redirectToECForm} variant='contained' className='submitECs'>
                 Submit ECs
+                
             </button>
 
-            <button variant='contained' className='trackTicket'>
+            <button type = 'button' onClick={redirectToTrackTicket} variant='contained' className='trackTicket'>
                 Track Tickets
             </button>
  
-            <button variant='contained' className='reportLab'>
-                <a href="/IssueForms/IssueForm">Report A Lab Issue</a>
+            <button type = 'button' onClick={redirectToReportLab} variant='contained' className='reportLab'>
+                Report A Lab Issue
             </button>
         
-            <button variant='contained' className='reportService'>
+            <button type = 'button' onClick={redirectToReportService} variant='contained' className='reportService'>
                 Report A Service Issue
             </button>
 
-            <button variant='contained' className='checkService'>
+            <button type = 'button' onClick={redirectToCheckService} variant='contained' className='checkService'>
                 Check Service Status
             </button>
             

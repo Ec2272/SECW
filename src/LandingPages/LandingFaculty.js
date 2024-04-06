@@ -3,26 +3,47 @@ import './Landing.css';
 
 
 class App extends Component {
+
+
+
     render(){
+
+        const redirectToTrackTicket = () => {
+            window.location.href = "/TrackTicket";
+        }
+
+        const redirectToReportLab = () => {
+            window.location.href = "/ReportLab";
+        }
+
+        const redirectToReportService = () => {
+            window.location.href = "/ReportService";
+        }
+
+        const redirectToCheckService = () => {
+            window.location.href = "/CheckService";
+        }
+    
+
       return(
         <body>
             <div className="App">
                 <h1> QMUL Faculty Landing </h1>
 
 
-                <button variant='contained' className='trackTicket'>
-                    Track Tickets 4
+                <button type = 'button' onClick={redirectToTrackTicket} variant='contained' className='trackTicket'>
+                    Track Tickets 
                 </button>
 
-                <button variant='contained' className='reportService'>
+                <button type = 'button' onClick={redirectToReportLab} variant='contained' className='reportService'>
                     Report A Lab Issue
                 </button>
 
-                <button variant='contained' className='reportLab'>
+                <button type = 'button' onClick={redirectToReportService} variant='contained' className='reportLab'>
                     Report A Service Issue
                 </button>
 
-                <button variant='contained' className='checkService'>
+                <button type = 'button' onClick={redirectToCheckService} variant='contained' className='checkService'>
                     Check Service Status
                 </button>
             

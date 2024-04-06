@@ -12,7 +12,19 @@ function Login() {
     if (username === 'admin' && password === 'password') {
       setLoginStatus('Login successful!');
       setIsLoginSuccess(true);
-    } else {
+    }
+    else if (username === 'student' && password === 'password') {
+      setLoginStatus('Login successful!');
+      setIsLoginSuccess(true);
+      window.location.href = '/LandingStudent';
+    }
+    else if (username === 'faculty' && password === 'password') {
+      setLoginStatus('Login successful!');
+      setIsLoginSuccess(true);
+      window.location.href = '/LandingFaculty';
+    }
+    
+    else {
       setLoginStatus('Login unsuccessful. Incorrect username or password.');
       setIsLoginSuccess(false);
     }

@@ -17,21 +17,57 @@ import './Login/Login.css'
 import ECForm from './SubmitEC/ECForm';
 import './SubmitEC/FormStyles.css';
 
-import IssueForm from './SubmitIssue/IssueForm';
+import LabIssueForm from './SubmitIssue/LabIssueForm';
+import './SubmitIssue/FormStyles.css';
+
+import ServiceIssueForm from './SubmitIssue/ServiceIssueForm';
 import './SubmitIssue/FormStyles.css';
 
 import ServiceStatus from './ServiceStatus/ServiceStatus';
 import './ServiceStatus/style.css';
 
+import TrackTickets from './TrackTickets/tracktickets';
+import './TrackTickets/style.css';
+
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 function App() {
 
   return (
 
-    <div className="App">
-    <header className="App-header">
-      <LoginForm />
-    </header>
-  </div>
+    <Router>
+      <div className="App">
+      <header className="App-header">
+        <Switch>
+          <Route path= "/LoginForm">
+            <LoginForm />
+          </Route>
+          <Route path="/LandingStudent">
+            <LandingStudent />
+          </Route>
+          <Route path="/LandingFaculty">
+            <LandingFaculty />
+          </Route>
+          <Route path = "/ECForm">
+            <ECForm />
+          </Route>
+          <Route path = "/ReportLab">
+            <LabIssueForm />
+          </Route>
+          <Route path = "/ReportService">
+            <ServiceIssueForm />
+          </Route>
+          <Route path = "/CheckService">
+            <ServiceStatus />
+          </Route>
+          <Route path = "/TrackTicket">
+            <TrackTickets />
+          </Route>
+
+        </Switch>
+      </header>
+      </div>
+    </Router>
     
   )
 
