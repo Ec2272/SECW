@@ -1,11 +1,19 @@
+h2{
+  color: black;
+  margin-bottom: 5%;
+}
+
 .form-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  padding: 20px;
+  /* min-height: 100vh; */
+  padding: 5%; /* Height already forces user to scroll */
+  margin: 5%;
   background-color: #f9f9f9;
+
+
 }
 
 form {
@@ -13,7 +21,7 @@ form {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 500px;
+  max-width: 80%;
 }
 
 .form-group {
@@ -26,14 +34,24 @@ label {
   margin-bottom: 5px;
 }
 
-input[type='text'],
-textarea {
+input[type='text']{
   width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
   font-size: 16px;
+}
+
+/* text box is resizable, need to make it static */
+textarea {
+  max-width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  resize: none;
 }
 
 button {
@@ -48,7 +66,20 @@ button {
 }
 
 .upload-button {
-  width: 30%;
+  margin-top: 5%;
+  max-width: 60%;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  height: 5%;
+}
+
+.ECSubmitButton{
+  max-width: 60%;
   padding: 10px 20px;
   background-color: #007bff;
   color: #fff;

@@ -19,10 +19,10 @@ import ECForm from './SubmitEC/ECForm';
 import './SubmitEC/FormStyles.css';
 
 import LabIssueForm from './SubmitIssue/LabIssueForm';
-import './SubmitIssue/FormStyles.css';
+import './SubmitIssue/FormStyleIssues.css';
 
 import ServiceIssueForm from './SubmitIssue/ServiceIssueForm';
-import './SubmitIssue/FormStyles.css';
+import './SubmitIssue/FormStyleIssues.css';
 
 import ServiceStatus from './ServiceStatus/ServiceStatus';
 import './ServiceStatus/style.css';
@@ -82,7 +82,6 @@ function App() {
     </Router>
     
   )
-
 
 }
 

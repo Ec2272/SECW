@@ -36,7 +36,7 @@ const IssueForm = () => {
           <input type="file" ref={fileInputRef} style={{display: "none"}} />
           <button type="button" className="upload-button" onClick={handleDocumentUpload}>Upload File(s)</button>
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" className ="ECSubmitButton">Submit</button>
       </form>
     </div>
   );

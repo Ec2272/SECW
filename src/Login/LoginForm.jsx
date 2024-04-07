@@ -42,7 +42,7 @@ function Login() {
           <label>Password:</label>
           <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
         </div>
-        <button type="submit">Login</button>
+        <button type="submit" className="loginButton">Login</button>
         <div className={isLoginSuccess ? 'login-status success' : 'login-status error'}>
           {loginStatus}
         </div>

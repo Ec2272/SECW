@@ -95,7 +95,7 @@ const App = () => {
       <h1>Tracking Student Tickets</h1>
       {Object.keys(groupedRecords).map(description => (
         <div key={description}>
-          <h2 onClick={() => toggleFolder(description)} style={{ cursor: 'pointer' }}>
+          <h2  onClick={() => toggleFolder(description)} style={{ cursor: 'pointer' }} className='TrackTicketTitle'>
             {description} {openFolders[description] ? '▼' : '▶'}
           </h2>
           {openFolders[description] && (
@@ -118,8 +118,8 @@ const App = () => {
                     <td>{record.dateTime}</td>
                     <td>{record.status}</td>
                     <td>
-                      <button className="ticket-button" onClick={() => handleActionClick(record.id, 'upload')}>Upload Doc</button>
-                      <button className="close-button" onClick={() => handleActionClick(record.id, 'delete')}>Delete</button>
+                      <button className="Uploading" onClick={() => handleActionClick(record.id, 'upload')}>Upload </button>
+                      <button className="Deleting" onClick={() => handleActionClick(record.id, 'delete')}>Delete</button>
                     </td>
                     <td>
                       {record.uploadedFile && (

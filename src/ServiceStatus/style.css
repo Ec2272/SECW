@@ -1,3 +1,7 @@
+h2{
+  color: black;
+}
+
 .ticket-button {
   background-color: #007bff;
   color: white;
@@ -75,6 +79,7 @@
   color: white;
   top: 12px;
   right: 12px;
+  max-width: 10%;
   padding: 10px 10px;
   border-radius: 5px;
   border: none;
