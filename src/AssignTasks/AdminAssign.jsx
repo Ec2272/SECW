@@ -1,15 +1,15 @@
-import React from 'react';
-import './AdminAssign.css'; 
+import React, { useState } from 'react';
+import './AdminAssign.css';
+import TicketModal from './TicketModal'; 
 
-const EcTicketsTable = ({ onTicketSelect }) => {
+const AdminAssign = ({ tickets, onTicketSelect, onAssignTicket }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedTicket, setSelectedTicket] = useState(null);
 
-  const tickets = [
-    { ecID: 'EC123', studentID: 'S001', title: 'Extension Request', status: 'Resolved', assignStatus: 'Paul' },
-    { ecID: 'LAB147', studentID: 'S004', title: 'Alternative Assessment', status: 'Pending', assignStatus: 'NOT ASSIGNED' },
-    { ecID: 'SERV121', studentID: 'S023', title: 'QMPLUS Down', status: 'Pending', assignStatus: 'Louis' }
-  ];
-
-
+  const handleMoreInfoClick = (ticket) => {
+    setSelectedTicket(ticket); // set the selected ticket when the button is clicked
+    setIsModalOpen(true); // open the modal
+  };
 
   return (
     <div className="table-container">
@@ -25,32 +25,35 @@ const EcTicketsTable = ({ onTicketSelect }) => {
           </tr>
         </thead>
         <tbody>
-  {tickets.map(ticket => (
-    <tr key={ticket.ecID}> 
-      <td>{ticket.ecID}</td>
-      <td>{ticket.studentID}</td>
-      <td>{ticket.title}</td>
-      <td>{ticket.status}</td>
-      <td className={ticket.assignStatus === 'NOT ASSIGNED' ? 'not-assigned' : ''} >{ticket.assignStatus}</td>
-      <td>
-        <button 
-          className="info-button"
-          onClick={() => onTicketSelect(ticket)} 
-        >
-          More Info
-        </button>
-        <button className="assign-button"
-        onClick={() => onTicketSelect(ticket)}
-        >
-          Assign
-          </button>
-      </td>
-    </tr>
-  ))}
-</tbody>
+          {tickets.map((ticket) => (
+            <tr key={ticket.ecID}>
+              <td>{ticket.ecID}</td>
+              <td>{ticket.studentID}</td>
+              <td>{ticket.title}</td>
+              <td>{ticket.status}</td>
+              <td className={ticket.assignStatus === 'NOT ASSIGNED' ? 'not-assigned' : ''}>
+                {ticket.assignStatus}
+              </td>
+              <td>
+
+              <button className="moreinfo-button" onClick={() => handleMoreInfoClick(ticket)}>
+                  More info
+                </button>
+
+                <button 
+                  className="assign-button"
+                  onClick={() => onAssignTicket(ticket.ecID)}
+                >
+                  Assign
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
       </table>
+      {isModalOpen && <TicketModal ticket={selectedTicket} onClose={() => setIsModalOpen(false)} />} {/* pass the selected ticket as a prop to TicketModal */}
     </div>
   );
 };
 
-export default EcTicketsTable;
+export default AdminAssign;

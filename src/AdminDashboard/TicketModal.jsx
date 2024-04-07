@@ -33,7 +33,7 @@ const TicketModal = ({ ticket, onClose }) => { // accept ticket and onClose as p
                 X
             </button>
             <div className='modal-content'>
-              <h2>EC Application Details</h2>
+              <h2 className='ECModalTitle'>EC Application Details</h2>
               <div className='details'>
                 <p><strong>EC ID Number:</strong> {dummyData.ecID}</p>
                 <p><strong>Date submitted:</strong> {dummyData.date}</p>

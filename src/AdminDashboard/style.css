@@ -1,3 +1,10 @@
+.ECModalTitle {
+  font-size: 30px;
+  font-weight: 630;
+  margin-left: 0%;
+  text-align: left;
+}
+
 .ticket-button {
   background-color: #007bff;
   color: white;
