@@ -1,0 +1,88 @@
+
+
+.TrackTicketTitle{
+    color: white;
+}
+
+.Uploading {
+    background-color: #007bff;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 8px 27px;
+    border-radius: 5px;
+    border: none;
+    height: 45px;
+    cursor: pointer;
+    text-align: center;
+    font-size: medium;
+
+}
+
+.Deleting {
+    background-color: #dc3545;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    border: none;
+    height: 45px;
+    cursor: pointer;
+    text-align: center;
+    font-size: medium;
+}
+
+.Deleting:hover{
+    background-color: #b30012;
+}
+
+.table {
+    width: 100%;
+    background-color: 282c34;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: white;
+    
+    
+}
+
+.table th,
+.table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    color: black;
+    text-align: center;
+}
+
+.table th {
+    background-color: white;
+}
+
+  /* Collapsible Folders */
+.collapsible {
+    background-color: black;
+    color: black;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+}
+
+.active,
+.collapsible:hover {
+    background-color: black;
+}
+
+.collapsible-content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: black;
+}
+
+.active .collapsible-content {
+    display: block;
+}

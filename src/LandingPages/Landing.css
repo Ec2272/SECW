@@ -1,0 +1,314 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+ 
+.App{
+    background-color: #282c34;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    padding: 20px;
+    margin: 10px;
+    font-size: 50px;
+
+}
+
+.heading{
+    display: flex;
+    text-align: center;
+}
+
+body {
+    background-color: white;
+    color: black;
+    font-family: "Fira Sans", sans-serif;
+    background-color: #282c34;
+}
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+.line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2% 5%;
+}
+ 
+.line .side1 {
+    padding-right: 50px;
+}
+ 
+.side1 h1 {
+    font-size: 60px;
+    margin-bottom: 10px;
+    color: green;
+}
+ 
+.side1 button {
+    width: 200px;
+    padding: 12px 20px;
+    border-radius: 20px;
+    border-style: none;
+    color: black;
+    font-size: 17px;
+    font-weight: 600;
+}
+ 
+a {
+    text-decoration: none;
+    color: black;
+}
+ 
+/* Header content responsive */
+@media screen and (max-width: 980px) {
+    .side2 img {
+        width: 350px;
+    }
+ 
+    .side1 h1 {
+        font-size: 40px;
+    }
+ 
+    .side1 p {
+        font-size: 17px;
+    }
+ 
+    .line {
+        margin-top: 80px;
+    }
+}
+ 
+@media screen and (max-width: 600px) {
+    .side1 h1 {
+        font-size: 35px;
+    }
+ 
+    .line {
+        flex-direction: column;
+    }
+ 
+    .line .side1 {
+        padding: 30px;
+    }
+}
+ 
+/* section */
+
+section{
+    padding: 50px;
+}
+
+section .options{
+    text-align: center;
+    display: flex;
+}
+ 
+section .topic a {
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+ 
+.about .boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+ 
+.about .boxes .box {
+    margin: 10px 20px;
+    max-width: calc(100% / 3 - 50px);
+    text-align: center;
+    border-radius: 12px;
+    padding: 30px 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+    cursor: default;
+}
+
+/* Images*/
+
+.Qm_Image{
+    align-items: center;
+    display: flex;
+}
+
+img{
+    text-align: center;
+    max-width: 500px;
+    height: auto;
+
+    
+}
+ 
+
+/* Buttons */
+
+.submitECs{
+    padding: 5px;
+    margin: 5px;
+} 
+
+.ECDashboard{
+    padding: 5px;
+    margin: 5px;
+}
+
+.IssueDashboard{
+    padding: 5px;
+    margin: 5px;
+}
+
+.trackTicket{
+    padding: 5px;
+    margin: 5px;
+}
+
+.reportLab{
+    padding: 5px;
+    margin: 5px;
+}
+
+.reportService{
+    padding: 5px;
+    margin: 5px;
+}
+
+.checkService{
+    padding: 5px;
+    margin: 5px;
+}
+
+.button-container{
+    display: flex;
+}
+
+.button {
+    margin-top: 12px;
+    margin-left: 5px;
+    
+}
+ 
+.button button {
+    width: 162px;
+    height: 35px;
+    border-radius: 12px;
+    border-color: transparent;
+}
+ 
+.button button:hover {
+    background-color: lightgreen;
+}
+ 
+button {
+    width: 162px;
+    height: 35px;
+    border-radius: 12px;
+    border-color: transparent;
+
+}
+ 
+button:hover {
+    background-color: lightgreen;
+}
+ 
+.rightside1 {
+    display: flex;
+    flex-direction: column;
+    margin-left: 300px;
+}
+ 
+.title1 {
+    font-size: 18px;
+    margin-top: 8px;
+    margin-bottom: 5px;
+    font-weight: bolder;
+}
+ 
+.content1 {
+    width: 450px;
+    margin-top: 2px;
+    color: grey;
+}
+ 
+/* Footer */
+footer {
+    background: var(--primary-color);
+    padding: 15px 0;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+}
+ 
+footer .footer span {
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--white-color);
+}
+ 
+footer .footer span a {
+    font-weight: 500;
+    color: var(--white-color);
+}
+ 
+footer .footer span a:hover {
+    text-decoration: underline;
+}
+ 
+@media screen and (max-width: 1060px) {
+    .contactMenu {
+        flex-direction: column;
+        align-items: center;
+    }
+ 
+    .rightside1 {
+        display: flex;
+        flex-direction: column;
+        margin-left: 0px;
+    }
+ 
+    .content1 {
+        width: 100%;
+        margin-top: 2px;
+        color: grey;
+    }
+ 
+    .side2 img {
+        width: 95%;
+        height: 90%;
+    }
+}
+ 
+@media screen and (max-width: 600px) {
+    .side2 img {
+        width: 100%;
+    }
+ 
+    section .topic a {
+        font-size: 20px;
+    }
+ 
+    section .topic p {
+        font-size: 5px;
+    }
+ 
+    .about .boxes {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+ 
+    .about .boxes .box {
+        max-width: 70%;
+    }
+}
