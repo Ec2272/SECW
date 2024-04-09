@@ -2,10 +2,10 @@ h2{
   color: black;
 }
 
-.ticket-button {
+.services-button {
   background-color: #007bff;
   color: white;
-  padding: 11px 20px;
+  padding: 11px 11px;
   border-radius: 5px;
   border: none;
   cursor: pointer;
@@ -43,36 +43,6 @@ h2{
   text-align: left;
 }
 
-/* .approve-button {
-  background-color: green;
-  color: white;
-  padding: 10px 20px;
-  margin-right: 10px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  margin-top: 20px;
-}
-
-.approve-button:hover {
-  background-color: darkgreen;
-}
-
-.disapprove-button {
-  background-color: #dc3545;
-  color: white;
-  padding: 10px 20px;
-  margin-right: 10px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  margin-top: 20px;
-}
-
-.disapprove-button:hover {
-  background-color: #c82333;
-} */
-
 .exit-button {
   position: absolute;
   background-color: darkgray;
@@ -90,16 +60,9 @@ h2{
   background-color: grey;
 }
 
-/* .details p {
-  margin: 20px 0;
-}
-
-.buttons {
-  margin-top: 20px;
-} */
-
   .service-list {
-    margin-top: 20px;
+    margin: 10px 0;
+
   }
   
   .service-item {
@@ -107,6 +70,7 @@ h2{
   }
   
   .service-name {
+    font-size: 18px;
     font-weight: bold;
     display: inline;
   }
@@ -115,4 +79,28 @@ h2{
     margin-left: 5px;
     display: inline;
   }
+
+  .service-goodService {
+    color: green;
+    margin-left: 5px;
+    display: inline;
+  }
+
+  .service-partialService{
+    color: orange;
+    margin-left: 5px;
+    display: inline;
+  }
+
+  .service-noService {
+    color: red;
+    margin-left: 5px;
+    display: inline;
+  }
+
   
+  .service-resolved {
+    color: green;
+    margin-left: 5px;
+    display: inline;
+  }
