@@ -109,7 +109,7 @@ const TicketModal = () => {
           <div className='modal-content'>
             <h2>Previously Resolved Service Interruptions</h2>
             <div className='service-list'>
-              {interruptions.map((interuptions, index) => (
+              {interruptions.map((interruptions, index) => (
                 <div key={index} className='service-item'>
                   <p className='service-name'>{interruptions.name}</p>
                   <p className='service-status'>{interruptions.status}</p>
