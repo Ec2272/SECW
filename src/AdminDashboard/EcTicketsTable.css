@@ -1,71 +1,114 @@
 .table-container {
-  margin: 20px auto;
-  max-width: 960px; 
-  background: #fff;
-  border-radius: 6px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden; 
+    margin: 20px auto;
+    max-width: 960px;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow-x: auto; /* Allows horizontal scrolling for the table on smaller screens */
 }
 
 table {
-  width: 100%;
-  border-spacing: 0;
-  border-collapse: collapse;
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
 }
 
-th, td {
-  padding: 12px 15px;
-  text-align: left;
-  font-size: 0.9rem;
-  color: #333; 
+th,
+td {
+    padding: 12px 15px;
+    text-align: left;
+    /* Ensure font size scales down for smaller screens */
+    font-size: calc(12px + (14 - 12) * ((100vw - 320px) / (1600 - 320)));
+    word-wrap: break-word; /* Allows text to wrap within cells */
 }
 
 th {
-  background-color: #5D93E1;
-  color: #fff; 
-  font-weight: 600;
+    background-color: #5d93e1;
+    color: #fff;
+    font-weight: 600;
 }
 
 td {
-  border-top: 1px solid #eaeff2;
-  line-height: 1.5;
+    border-top: 1px solid #eaeff2;
 }
 
 tr:hover {
-  background-color: #f5f7fa; 
+    background-color: #f5f7fa;
 }
 
 .info-button {
-  background-color: #4CAF50; 
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  width: 200px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 0.8rem;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background 0.3s ease;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    width: auto; /* Changed from fixed width to auto */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: calc(
+        12px + (14 - 12) * ((100vw - 320px) / (1600 - 320))
+    ); /* Responsive font size */
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+    overflow: hidden; /* Ensure text doesn't overflow on small buttons */
+    white-space: nowrap; /* Keep button text in one line */
+    text-overflow: ellipsis; /* Add ellipsis for overflowed text */
 }
 
 .info-button:hover {
-  background-color: #45a049;
+    background-color: #45a049;
 }
 
+@media screen and (max-width: 600px) {
+    th,
+    td {
+        font-size: 12px; /* Smaller font size for very small screens */
+        padding: 8px; /* Reduce padding to save space */
+    }
 
-@media (max-width: 600px) {
-  .table-container {
-    margin: 10px;
-  }
+    /* Convert table to block layout for mobile */
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
 
-  th, td {
-    padding: 10px;
-  }
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
 
-  .info-button {
-    padding: 6px 12px;
-    font-size: 0.75rem;
-  }
+    tr {
+        border: 1px solid #ccc;
+        margin-bottom: 5px;
+    }
+
+    td {
+        /* Ensure full visibility and readability */
+        padding-left: 50%;
+        position: relative;
+        text-align: right;
+        border: none;
+    }
+
+    td:before {
+        /* Label content */
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        text-align: left;
+        font-weight: bold;
+        /* Place labels in the left half */
+        width: 45%;
+    }
+
+    .info-button {
+        width: 100%; /* Full width for better tap targets */
+        margin-top: 10px; /* Spacing above button */
+    }
 }
