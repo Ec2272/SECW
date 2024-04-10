@@ -4,7 +4,8 @@ import "./FormStyleIssues.css";
 
 const LabIssueForm = () => {
   const handleFormSubmit = async (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
+    const UserID = sessionStorage.getItem('userId'); //grab Userid, Change 1
 
     const formData = {
       "Module Code": event.target.labName.value,
@@ -13,6 +14,7 @@ const LabIssueForm = () => {
       "Application Name": event.target.applicationName.value,
       "Computer Architecture": event.target.issueType.value,
       "Description": event.target.description.value,
+      "UserID_L": UserID, //change 2
     };
 
     const { error } = await supabase
