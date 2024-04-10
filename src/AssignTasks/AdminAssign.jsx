@@ -17,8 +17,7 @@ const AdminAssign = ({ tickets, onTicketSelect, onAssignTicket }) => {
         <thead>
           <tr>
             <th>TICKET ID</th>
-            <th>Student ID</th>
-            <th>Title</th>
+            <th>USER ID</th>
             <th>Status</th>
             <th>AssignStatus</th>
             <th>Actions</th>
