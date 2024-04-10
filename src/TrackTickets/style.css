@@ -1,65 +1,79 @@
-
-
-.TrackTicketTitle{
+/* Main Styles */
+.TrackTicketTitle {
     color: white;
+    margin-bottom: 10px;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #333;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.TrackTicketTitle:hover {
+    background-color: #555;
 }
 
 .Uploading {
     background-color: #007bff;
     color: white;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin: 8px 27px;
+    padding: 8px 12px;
+    margin: 4px;
     border-radius: 5px;
     border: none;
-    height: 45px;
     cursor: pointer;
     text-align: center;
-    font-size: medium;
-
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
 }
 
 .Deleting {
     background-color: #dc3545;
     color: white;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 8px 12px;
+    margin: 4px;
     border-radius: 5px;
     border: none;
-    height: 45px;
     cursor: pointer;
     text-align: center;
-    font-size: medium;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
 }
 
-.Deleting:hover{
+.Deleting:hover {
     background-color: #b30012;
 }
 
 .table {
     width: 100%;
-    background-color: 282c34;
     border-collapse: collapse;
     margin-bottom: 20px;
     background-color: white;
-    
-    
+    color: black;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .table th,
 .table td {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 12px;
     text-align: left;
-    color: black;
-    text-align: center;
 }
 
 .table th {
     background-color: white;
+    color: black; /* Column titles in black for clarity */
 }
 
-  /* Collapsible Folders */
+/* Collapsible Folders */
 .collapsible {
     background-color: black;
     color: black;
@@ -85,4 +99,146 @@
 
 .active .collapsible-content {
     display: block;
+}
+
+/* Responsive Design Adjustments */
+@media screen and (max-width: 600px) {
+    /* Form Enhancements for Clarity and Distinction */
+    form {
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f7f7f7;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+        background-color: #ffffff;
+        padding: 12px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    button[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px; /* Added margin for better spacing */
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    textarea {
+        height: 120px;
+    }
+
+    button[type="submit"] {
+        padding: 12px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    /* Table Adjustments for Mobile View */
+    .table,
+    .table tr,
+    .table td {
+        border: 0;
+    }
+
+    .table thead {
+        display: none;
+    }
+
+    .table tr {
+        margin-bottom: 20px;
+        display: block;
+        border-bottom: 2px solid #ddd;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .table td {
+        display: block;
+        text-align: right;
+        border-bottom: 1px dotted #ccc;
+        margin-bottom: 5px;
+        padding: 10px;
+    }
+
+    .table td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    .table td:last-child {
+        border-bottom: 0;
+    }
+
+    .Uploading,
+    .Deleting {
+        width: 100%;
+        margin: 8px 0;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    /* Uploaded Documents Section Adjustments */
+    .table td[data-label="Uploaded Document(s)"] {
+        text-align: left;
+        padding: 10px;
+        word-break: break-word;
+        min-height: 40px;
+    }
+
+    .table td[data-label="Uploaded Document(s)"] div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 5px;
+    }
+
+    .table td[data-label="Uploaded Document(s)"] span {
+        flex: 1;
+        margin-right: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .delete-file-button {
+        background-color: #dc3545;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 12px;
+        line-height: 1;
+        padding: 0;
+        margin-left: 5px;
+    }
 }
