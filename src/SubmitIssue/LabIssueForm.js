@@ -4,14 +4,17 @@ import "./FormStyleIssues.css";
 
 const LabIssueForm = () => {
   const handleFormSubmit = async (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
+
+    // Map selected issue type to corresponding enum value
+    const issueType = event.target.issueType.value === 'hardware' ? 'Hardware' : 'Software';
 
     const formData = {
       "Module Code": event.target.labName.value,
       "Floor": event.target.floor.value,
       "Computer ID": event.target.computerId.value,
       "Application Name": event.target.applicationName.value,
-      "Computer Architecture": event.target.issueType.value,
+      "Computer Architecture": issueType, // Use mapped issue type
       "Description": event.target.description.value,
     };
 
@@ -23,7 +26,6 @@ const LabIssueForm = () => {
       alert('Could not submit the issue: ' + error.message);
     } else {
       alert('Issue submitted successfully!');
-      
     }
   };
 
