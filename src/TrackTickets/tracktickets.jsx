@@ -61,36 +61,38 @@ const App = () => {
   // Rendering logic for records using fetched data
   return (
     <div>
-      <h1>Tracking Student Tickets</h1>
-      <div>
-        <h2 onClick={() => toggleFolder('EC Ticket(s)')} style={{ cursor: 'pointer' }} className='TrackTicketTitle'>
-          EC Ticket(s) {openFolders['EC Ticket(s)'] ? '▼' : '▶'}
-        </h2>
-        {openFolders['EC Ticket(s)'] && (
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Ticket ID</th>
-                <th>Module Code</th>
-                <th>Assessment Type</th>
-                <th>Description</th>
-                <th>Supporting Evidence</th>
+    <h1>Tracking Student Tickets</h1>
+    <div>
+      <h2 onClick={() => toggleFolder('EC Ticket(s)')} style={{ cursor: 'pointer' }} className='TrackTicketTitle'>
+        EC Ticket(s) {openFolders['EC Ticket(s)'] ? '▼' : '▶'}
+      </h2>
+      {openFolders['EC Ticket(s)'] && (
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Ticket ID</th>
+              <th>Module Code</th>
+              <th>Assessment Type</th>
+              <th>Description</th>
+              <th>Supporting Evidence</th>
+              <th>Status</th> {/* New column header */}
+            </tr>
+          </thead>
+          <tbody>
+            {ecTickets.map(record => (
+              <tr key={record.TicketID}>
+                <td>{record.TicketID}</td>
+                <td>{record['Module Code']}</td>
+                <td>{record['Assessment Type']}</td>
+                <td>{record.Description}</td>
+                <td>{record['Supporting Evidence']}</td>
+                <td>{record.Status}</td> {/* New column data */}
               </tr>
-            </thead>
-            <tbody>
-              {ecTickets.map(record => (
-                <tr key={record.TicketID}>
-                  <td>{record.TicketID}</td>
-                  <td>{record['Module Code']}</td>
-                  <td>{record['Assessment Type']}</td>
-                  <td>{record.Description}</td>
-                  <td>{record['Supporting Evidence']}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
-      </div>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </div>
       <div>
         <h2 onClick={() => toggleFolder('Lab Issue(s)')} style={{ cursor: 'pointer' }} className='TrackTicketTitle'>
           Lab Issue(s) {openFolders['Lab Issue(s)'] ? '▼' : '▶'}
