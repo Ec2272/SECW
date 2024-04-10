@@ -1,19 +1,67 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './EcTicketsTable.css';
-import TicketModal from './TicketModal'; 
+import TicketModal from './TicketModal';
+import supabase from '../Config/supabaseClient';
 
-const EcTicketsTable = ({ onTicketSelect }) => {
+const EcTicketsTable = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedTicket, setSelectedTicket] = useState(null);
+  const [ecTickets, setEcTickets] = useState([]);
+  const userID = sessionStorage.getItem('userId');
 
-  const tickets = [
-    { ecID: 'EC123', studentID: 'S001', title: 'Extension Request', status: 'Pending' },
-    { ecID: 'EC147', studentID: 'S004', title: 'Alternative Assessment', status: 'Resolved' },
-  ];
+  useEffect(() => {
+    async function fetchEcTickets() {
+      try {
+        const { data, error } = await supabase
+          .from('EC_Ticket')
+          .select('TicketID_E, UserId_E, ECStatus')
+          .eq('UserId_E', userID);
+        if (error) throw error;
+        setEcTickets(data);
+      } catch (error) {
+        console.error('Error fetching EC tickets:', error.message);
+      }
+    }
+    fetchEcTickets();
+  }, [userID]);
 
   const handleMoreInfoClick = (ticket) => {
-    setSelectedTicket(ticket); // set the selected ticket when the button is clicked
-    setIsModalOpen(true); // open the modal
+    setSelectedTicket(ticket);
+    setIsModalOpen(true);
+  };
+
+  const handleApproveTicket = async (ticket) => {
+    try {
+      const { error } = await supabase
+        .from('EC_Ticket')
+        .update({ ECStatus: 'Approved' })
+        .eq('TicketID_E', ticket.TicketID_E);
+      if (error) throw error;
+      const updatedTickets = ecTickets.map((t) =>
+        t.TicketID_E === ticket.TicketID_E ? { ...t, ECStatus: 'Approved' } : t
+      );
+      setEcTickets(updatedTickets);
+      setIsModalOpen(false);
+    } catch (error) {
+      console.error('Error approving ticket:', error.message);
+    }
+  };
+
+  const handleDisapproveTicket = async (ticket) => {
+    try {
+      const { error } = await supabase
+        .from('EC_Ticket')
+        .update({ ECStatus: 'Disapproved' })
+        .eq('TicketID_E', ticket.TicketID_E);
+      if (error) throw error;
+      const updatedTickets = ecTickets.map((t) =>
+        t.TicketID_E === ticket.TicketID_E ? { ...t, ECStatus: 'Disapproved' } : t
+      );
+      setEcTickets(updatedTickets);
+      setIsModalOpen(false);
+    } catch (error) {
+      console.error('Error disapproving ticket:', error.message);
+    }
   };
 
   return (
@@ -21,36 +69,35 @@ const EcTicketsTable = ({ onTicketSelect }) => {
       <table>
         <thead>
           <tr>
-            <th>EC ID</th>
+            <th>Ticket ID</th>
             <th>Student ID</th>
-            <th>Title</th>
             <th>Status</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          {tickets.map(ticket => (
-            <tr key={ticket.ecID}>
-              <td>{ticket.ecID}</td>
-              <td>{ticket.studentID}</td>
-              <td>{ticket.title}</td>
-              <td>{ticket.status}</td>
+          {ecTickets.map((ticket) => (
+            <tr key={ticket.TicketID_E}>
+              <td>{ticket.TicketID_E}</td>
+              <td>{ticket.UserId_E}</td>
+              <td>{ticket.ECStatus}</td>
               <td>
-                {/* <button onClick={() => {
-                  setIsModalOpen(true);
-                  setSelectedTicket(ticket); // set the selected ticket when the button is clicked
-                }}>More Info</button> */}
-                {/* <button onClick={() => handleMoreInfoClick(ticket)}>More Info</button> */}
                 <button className="info-button" onClick={() => handleMoreInfoClick(ticket)}>
-                  More info for Ticket: {ticket.ecID}
+                  More info
                 </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-      {isModalOpen && <TicketModal ticket={selectedTicket} onClose={() => setIsModalOpen(false)} />} {/* pass the selected ticket as a prop to TicketModal */}
-
+      {isModalOpen && (
+        <TicketModal
+          ticket={selectedTicket}
+          onClose={() => setIsModalOpen(false)}
+          onApprove={handleApproveTicket}
+          onDisapprove={handleDisapproveTicket}
+        />
+      )}
     </div>
   );
 };
