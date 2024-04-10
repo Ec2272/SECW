@@ -34,7 +34,7 @@ const LabIssueForm = () => {
       <form onSubmit={handleFormSubmit}>
         <h2>Lab Issue Form</h2>
         <div className="form-group">
-          <label>Lab Name</label>
+          <label>Module Code</label>
           <input name="labName" placeholder="Lab Name" required />
         </div>
         <div className="form-group">
