@@ -3,12 +3,14 @@ import "./FormStyleIssues.css";
 import supabase from '../Config/supabaseClient';
 
 const ServiceIssueForm = () => {
+  // Define a list of service names
+  const serviceNames = ["QMPlus", "MySis", "Q-Review", "Outlook", "QM GitHub", "JupyterHub", "Other"]; // Update this list as needed
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     const formData = {
       "Service Name": event.target.serviceName.value,
-      "Service ID": event.target.serviceId.value,
       "Description": event.target.description.value
     };
 
@@ -29,17 +31,16 @@ const ServiceIssueForm = () => {
         <h2>Service Issue Form</h2>
         <div className='form-group'>
           <label>Service Name</label>
-          <input name="serviceName" placeholder="Service Name" required />
-        </div>
-        <div className='form-group'>
-          <label>Service ID</label>
-          <input name="serviceId" placeholder="Service ID" required />
+          <select name="serviceName" required>
+            {serviceNames.map(name => (
+              <option value={name} key={name}>{name}</option>
+            ))}
+          </select>
         </div>
         <div className='form-group'>
           <textarea name="description" placeholder="Description" required />
         </div>
-  
-          <button type="submit" className='IssueSubmitButton'>Submit</button>
+        <button type="submit" className='IssueSubmitButton'>Submit</button>
       </form>
     </>
   );
