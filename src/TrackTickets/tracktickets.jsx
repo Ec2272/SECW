@@ -86,7 +86,7 @@ const App = () => {
                 <td>{record['Assessment Type']}</td>
                 <td>{record.Description}</td>
                 <td>{record['Supporting Evidence']}</td>
-                <td>{record.Status}</td> {/* New column data */}
+                <td>{record.ECStatus}</td> {/* New column data */}
               </tr>
             ))}
           </tbody>
