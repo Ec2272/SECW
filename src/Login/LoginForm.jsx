@@ -26,17 +26,25 @@ function Login() {
           case 'Student':
             setLoginStatus('Login successful!');
             setIsLoginSuccess(true);
+            sessionStorage.setItem('userId', users.UserId);
             window.location.href = '/LandingStudent';
             break;
-
-          case 'Faculty':
+          case 'Support Staff':
             setLoginStatus('Login successful!');
             setIsLoginSuccess(true);
             window.location.href = '/LandingFaculty';
             break;
+          case 'Faculty':
+            setLoginStatus('Login successful!');
+            setIsLoginSuccess(true);
+            sessionStorage.setItem('userId', users.UserId);
+            window.location.href = '/LandingFaculty';
+            break;
+            
           case 'Administrator':
             setLoginStatus('Login successful!');
             setIsLoginSuccess(true);
+            sessionStorage.setItem('userId', users.UserId);
             window.location.href = '/LandingAdmin';
             break;
           default:
