@@ -1,31 +1,21 @@
 import './style.css';
 import { useState } from 'react';
 
-const TicketModal = ({ ticket, onClose }) => { // accept ticket and onClose as props
+const TicketModal = ({ ticket, onClose }) => {
   const [showModal, setShowModal] = useState(false);
 
-  // const toggleModal = () => {
-  //   setShowModal(!showModal);
-  //   onClose(); // call onClose prop when the modal is toggled
-  // };
-
-  //This is jst some dummy data for proof of concept. change later
   const dummyData = {
     ecID: '00000000',
     date: '2024-03-19',
     time: '16:00',
     moduleCode: 'ECS506U',
     assessmentType: 'Coursework Assignment',
-    description: 'Request for extension due totechnical difficulties',
+    description: 'Request for extension due to technical difficulties',
     supportingDocumentation: 'evidence_screenshot.pdf',
   };
 
   return (
     <>
-      {/* <button onClick={toggleModal} className='ticket-button'>
-        View Details for Ticket: 00000000
-      </button> */}
-
       {ticket && (
         <div className='modal-overlay'>
           <div className='modal'>
@@ -43,15 +33,7 @@ const TicketModal = ({ ticket, onClose }) => { // accept ticket and onClose as p
                 <p><strong>Description:</strong> {dummyData.description}</p>
                 <p><strong>Supporting Documentation:</strong> {dummyData.supportingDocumentation}</p>
               </div>
-              <div className='buttons'>
-                <button type='button' onClick={onClose} className='approve-button'>
-                  Approve
-                </button>
-                <button type='button' onClick={onClose} className='disapprove-button'>
-                  Disapprove
-                </button>
-                {/* Additional buttons for admin actions can be added here */}
-              </div>
+              {/* Removed Approve and Disapprove buttons */}
             </div>
           </div>
         </div>
