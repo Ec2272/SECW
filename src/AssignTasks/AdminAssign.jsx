@@ -31,7 +31,7 @@ const AdminAssign = ({ tickets, onTicketSelect, onAssignTicket }) => {
               <td>{ticket.studentID}</td>
               <td>{ticket.title}</td>
               <td>{ticket.status}</td>
-              <td className={ticket.assignStatus === 'NOT ASSIGNED' ? 'not-assigned' : ''}>
+              <td className={ticket.assignStatus === 'Unassigned' ? 'not-assigned' : ''}>
                 {ticket.assignStatus}
               </td>
               <td>
