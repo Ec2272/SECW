@@ -14,6 +14,7 @@ const IssueForm = () => {
   const [file, setFile] = useState(null); // Store the file object instead of file URL
 
   const fileInputRef = useRef(null);
+  const UserID = sessionStorage.getItem('userId'); //grab Userid, Change 1
 
   const handleDocumentUpload = () => {
     fileInputRef.current.click();
@@ -34,6 +35,7 @@ const IssueForm = () => {
             "Assessment Type": assessmentType,
             "Description": description,
             "Supporting Evidence": file,
+            "UserId_E":UserID , //add it into table, Change 2
           }
         ]);
       if (error) throw error;
