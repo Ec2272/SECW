@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import './AdminAssign.css';
-import TicketModal from './TicketModal'; 
+import TicketModal from './TicketModal';
 
-const AdminAssign = ({ tickets, onTicketSelect, onAssignTicket }) => {
+const AdminAssign = ({ tickets, onAssignTicket }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedTicket, setSelectedTicket] = useState(null);
 
   const handleMoreInfoClick = (ticket) => {
-    setSelectedTicket(ticket); // set the selected ticket when the button is clicked
-    setIsModalOpen(true); // open the modal
+    setSelectedTicket(ticket);
+    setIsModalOpen(true);
   };
 
   return (
@@ -18,6 +18,7 @@ const AdminAssign = ({ tickets, onTicketSelect, onAssignTicket }) => {
           <tr>
             <th>TICKET ID</th>
             <th>USER ID</th>
+            <th>Title</th>
             <th>Status</th>
             <th>AssignStatus</th>
             <th>Actions</th>
@@ -34,12 +35,10 @@ const AdminAssign = ({ tickets, onTicketSelect, onAssignTicket }) => {
                 {ticket.assignStatus}
               </td>
               <td>
-
-              <button className="moreinfo-button" onClick={() => handleMoreInfoClick(ticket)}>
+                <button className="moreinfo-button" onClick={() => handleMoreInfoClick(ticket)}>
                   More info
                 </button>
-
-                <button 
+                <button
                   className="assign-button"
                   onClick={() => onAssignTicket(ticket.ecID)}
                 >
@@ -50,7 +49,9 @@ const AdminAssign = ({ tickets, onTicketSelect, onAssignTicket }) => {
           ))}
         </tbody>
       </table>
-      {isModalOpen && <TicketModal ticket={selectedTicket} onClose={() => setIsModalOpen(false)} />} {/* pass the selected ticket as a prop to TicketModal */}
+      {isModalOpen && (
+        <TicketModal ticket={selectedTicket} onClose={() => setIsModalOpen(false)} />
+      )}
     </div>
   );
 };
