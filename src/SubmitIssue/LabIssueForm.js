@@ -30,7 +30,6 @@ const LabIssueForm = () => {
   };
 
   return (
-    <div className="issue-form-container">
       <form onSubmit={handleFormSubmit}>
         <h2>Lab Issue Form</h2>
         <div className="form-group">
@@ -71,7 +70,6 @@ const LabIssueForm = () => {
         </div>
         <button type="submit" className='IssueSubmitButton'>Submit</button>
       </form>
-    </div>
   );
 };
 
