@@ -1,56 +1,36 @@
 import './style.css';
 import { useState } from 'react';
 
-const TicketModal = ({ ticket, onClose }) => { // accept ticket and onClose as props
-  const [showModal, setShowModal] = useState(false);
-
-  // const toggleModal = () => {
-  //   setShowModal(!showModal);
-  //   onClose(); // call onClose prop when the modal is toggled
-  // };
-
-  //This is jst some dummy data for proof of concept. change later
-  const dummyData = {
-    ecID: '00000000',
-    date: '2024-03-19',
-    time: '16:00',
-    moduleCode: 'ECS506U',
-    assessmentType: 'Coursework Assignment',
-    description: 'Request for extension due totechnical difficulties',
-    supportingDocumentation: 'evidence_screenshot.pdf',
-  };
-
+const TicketModal = ({ ticket, onClose }) => {
   return (
     <>
-      {/* <button onClick={toggleModal} className='ticket-button'>
-        View Details for Ticket: 00000000
-      </button> */}
-
       {ticket && (
-        <div className='modal-overlay'>
-          <div className='modal'>
-            <button type='button' onClick={onClose} className='exit-button'>
-                X
+        <div className="modal-overlay">
+          <div className="modal">
+            <button type="button" onClick={onClose} className="exit-button">
+              X
             </button>
-            <div className='modal-content'>
-              <h2>EC Application Details</h2>
-              <div className='details'>
-                <p><strong>EC ID Number:</strong> {dummyData.ecID}</p>
-                <p><strong>Date submitted:</strong> {dummyData.date}</p>
-                <p><strong>Time submitted:</strong> {dummyData.time}</p>
-                <p><strong>Module Code:</strong> {dummyData.moduleCode}</p>
-                <p><strong>Assessment Type:</strong> {dummyData.assessmentType}</p>
-                <p><strong>Description:</strong> {dummyData.description}</p>
-                <p><strong>Supporting Documentation:</strong> {dummyData.supportingDocumentation}</p>
-              </div>
-              <div className='buttons'>
-                <button type='button' onClick={onClose} className='approve-button'>
-                  Approve
-                </button>
-                <button type='button' onClick={onClose} className='disapprove-button'>
-                  Disapprove
-                </button>
-                {/* Additional buttons for admin actions can be added here */}
+            <div className="modal-content">
+              <h2>Ticket Details</h2>
+              <div className="details">
+                <p>
+                  <strong>Ticket ID:</strong> {ticket.ecID}
+                </p>
+                <p>
+                  <strong>Student ID:</strong> {ticket.studentID}
+                </p>
+                {/* <p>
+                  <strong>Title:</strong> {ticket.title}
+                </p> */}
+                <p>
+                  <strong>Status:</strong> {ticket.status}
+                </p>
+                <p>
+                  <strong>Description:</strong> {ticket.description}
+                </p>
+                <p>
+                  <strong>Supporting Documentation:</strong> {ticket.supportingDocumentation}
+                </p>
               </div>
             </div>
           </div>
