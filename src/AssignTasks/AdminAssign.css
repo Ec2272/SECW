@@ -1,115 +1,97 @@
-.table-container {
-  margin: 20px auto;
-  max-width: 960px; 
-  background: #fff;
-  border-radius: 6px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden; 
-}
+import React, { useState, useEffect } from 'react';
+import AdminAssign from './AdminAssign';
+import AssignToAdminModal from './AssignToAdminModal';
+import supabase from '../Config/supabaseClient';
 
-table {
-  width: 100%;
-  border-spacing: 0;
-  border-collapse: collapse;
-}
+const AdminAssignDashboard = () => {
+  const [tickets, setTickets] = useState([]);
+  const [isAssignModalOpen, setIsAssignModalOpen] = useState(false);
+  const [currentTicketIdForAssignment, setCurrentTicketIdForAssignment] = useState(null);
+  const [adminList, setAdminList] = useState([]);
 
-th, td {
-  padding: 12px 15px;
-  text-align: left;
-  font-size: 0.9rem;
-  color: #333; 
-}
+  useEffect(() => {
+    async function fetchTickets() {
+      try {
+        const { data: labIssues, error: labIssuesError } = await supabase
+          .from('Lab_Issue')
+          .select('TicketID, "Module Code", Floor, "Computer ID", "Application Name", "Computer Architecture", Description, AssignStatus, Status, UserID_L');
+        const { data: serviceIssues, error: serviceIssuesError } = await supabase
+          .from('Service_Issue')
+          .select('TicketID, "Service Name", Description, AssignStatus, FacultyID, Status, UserId_S');
+        const { data: supportStaff, error: supportStaffError } = await supabase
+          .from('Users')
+          .select('Username')
+          .eq('Roles', 'Supporting Staff');
 
-th {
-  background-color: #5D93E1;
-  color: #fff; 
-  font-weight: 600;
-}
+        if (labIssuesError || serviceIssuesError || supportStaffError) {
+          throw new Error('Error fetching data');
+        }
 
-td {
-  border-top: 1px solid #eaeff2;
-  line-height: 1.5;
-}
+        // Extract usernames from the fetched supporting staff data
+        const usernames = supportStaff.map(user => user.Username);
 
-tr:hover {
-  background-color: #f5f7fa; 
-}
+        // Update the adminList with the extracted usernames
+        setAdminList(usernames);
 
-.moreinfo-button {
-  background-color: #4CAF50; 
-  color: white;
-  border: none;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  width: 80px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 0.8rem;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background 0.3s ease;
-  margin-right: 10px;
-}
+        const allTickets = [
+          ...labIssues.map((issue) => ({
+            ecID: issue.TicketID,
+            moduleCode: issue["Module Code"],
+            floor: issue.Floor,
+            computerID: issue["Computer ID"],
+            appName: issue["Application Name"],
+            computerArch: issue["Computer Architecture"],
+            description: issue.Description,
+            assignStatus: issue.AssignStatus,
+            status: issue.Status,
+            studentID: issue.UserID_L,
+          })),
+          ...serviceIssues.map((issue) => ({
+            ecID: issue.TicketID,
+            serviceName: issue["Service Name"],
+            description: issue.Description,
+            assignStatus: issue.AssignStatus,
+            facultyID: issue.FacultyID,
+            status: issue.Status,
+            studentID: issue.UserId_S,
+          })),
+        ];
+        setTickets(allTickets);
+      } catch (error) {
+        console.error('Error fetching tickets:', error.message);
+      }
+    }
+    fetchTickets();
+  }, []);
 
-.moreinfo-button:hover {
-  background-color: #45a049;
-}
+  const handleAssignTicket = (ecID) => {
+    setCurrentTicketIdForAssignment(ecID);
+    setIsAssignModalOpen(true);
+  };
 
-.moreinfo-button:last-child {
-  margin-right: 0;
-}
+  const handleAdminAssignment = (ticketId, adminName) => {
+    setTickets(
+      tickets.map((ticket) =>
+        ticket.ecID === ticketId ? { ...ticket, assignStatus: adminName } : ticket
+      )
+    );
+    setIsAssignModalOpen(false);
+  };
 
-.assign-button {
-  background-color: #FFA500; 
-  color: white;
-  border: none;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  width: 80px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 0.8rem;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background 0.3s ease;
-  margin-right: 10px;
-}
+  return (
+    <>
+      <AdminAssign tickets={tickets} onAssignTicket={handleAssignTicket} />
+      {isAssignModalOpen && (
+        <AssignToAdminModal
+          isOpen={isAssignModalOpen}
+          admins={adminList}
+          onAssign={handleAdminAssignment}
+          onClose={() => setIsAssignModalOpen(false)}
+          ticketId={currentTicketIdForAssignment}
+        />
+      )}
+    </>
+  );
+};
 
-.assign-button:hover {
-  background-color: #FF8C00;
-  margin-right: 0;
-}
-
-.assign-button:last-child {
-  margin-right: 0;
-}
-
-.not-assigned {
-  color: red;
-}
-
-.not-assigned:hover {
-  color: red;
-}
-
-
-@media (max-width: 600px) {
-  .table-container {
-    margin: 10px;
-  }
-
-  th, td {
-    padding: 10px;
-  }
-
-  .info-button {
-    padding: 6px 12px;
-    font-size: 0.75rem;
-  }
-}
+export default AdminAssignDashboard;
