@@ -1,7 +1,5 @@
-// AssignToAdminModal.jsx
 import React from 'react';
 import './style.css';
- // Assuming you have a generic stylesheet for modals
 
 const AssignToAdminModal = ({ isOpen, admins, onAssign, onClose, ticketId }) => {
   if (!isOpen) {
@@ -14,20 +12,16 @@ const AssignToAdminModal = ({ isOpen, admins, onAssign, onClose, ticketId }) => 
   };
 
   return (
-    <div className='modal-overlay'>
-      <div className='modal'>
-        <button type='button' onClick={onClose} className='exit-button'>
+    <div className="modal-overlay">
+      <div className="modal">
+        <button type="button" onClick={onClose} className="exit-button">
           X
         </button>
         <h2>Assign Ticket to Admin</h2>
-        <ul className='admin-list'>
+        <ul className="admin-list">
           {admins.map((admin, index) => (
-            <li key={index} className='admin-item'>
-              <button
-                type='button'
-                onClick={() => handleAdminClick(admin)}
-                className='admin-button'
-              >
+            <li key={index} className="admin-item">
+              <button type="button" onClick={() => handleAdminClick(admin)} className="admin-button">
                 {admin}
               </button>
             </li>
