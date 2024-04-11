@@ -19,9 +19,9 @@ const TicketModal = ({ ticket, onClose }) => {
                 <p>
                   <strong>Student ID:</strong> {ticket.studentID}
                 </p>
-                <p>
+                {/* <p>
                   <strong>Title:</strong> {ticket.title}
-                </p>
+                </p> */}
                 <p>
                   <strong>Status:</strong> {ticket.status}
                 </p>

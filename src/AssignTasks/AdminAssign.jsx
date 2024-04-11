@@ -18,7 +18,7 @@ const AdminAssign = ({ tickets, onAssignTicket }) => {
           <tr>
             <th>TICKET ID</th>
             <th>USER ID</th>
-            <th>Title</th>
+            {/* <th>Title</th> */}
             <th>Status</th>
             <th>AssignStatus</th>
             <th>Actions</th>
@@ -29,7 +29,7 @@ const AdminAssign = ({ tickets, onAssignTicket }) => {
             <tr key={ticket.ecID}>
               <td>{ticket.ecID}</td>
               <td>{ticket.studentID}</td>
-              <td>{ticket.title}</td>
+              {/* <td>{ticket.title}</td> */}
               <td>{ticket.status}</td>
               <td className={ticket.assignStatus === 'Unassigned' ? 'not-assigned' : ''}>
                 {ticket.assignStatus}
