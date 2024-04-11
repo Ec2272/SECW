@@ -7,15 +7,13 @@ const EcTicketsTable = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedTicket, setSelectedTicket] = useState(null);
   const [ecTickets, setEcTickets] = useState([]);
-  const userID = sessionStorage.getItem('userId');
 
   useEffect(() => {
     async function fetchEcTickets() {
       try {
         const { data, error } = await supabase
           .from('EC_Ticket')
-          .select('TicketID_E, UserId_E, ECStatus')
-          .eq('UserId_E', userID);
+          .select('TicketID, UserId_E, ECStatus');
         if (error) throw error;
         setEcTickets(data);
       } catch (error) {
@@ -23,7 +21,7 @@ const EcTicketsTable = () => {
       }
     }
     fetchEcTickets();
-  }, [userID]);
+  }, []);
 
   const handleMoreInfoClick = (ticket) => {
     setSelectedTicket(ticket);
@@ -35,10 +33,10 @@ const EcTicketsTable = () => {
       const { error } = await supabase
         .from('EC_Ticket')
         .update({ ECStatus: 'Approved' })
-        .eq('TicketID_E', ticket.TicketID_E);
+        .eq('TicketID', ticket.TicketID);
       if (error) throw error;
       const updatedTickets = ecTickets.map((t) =>
-        t.TicketID_E === ticket.TicketID_E ? { ...t, ECStatus: 'Approved' } : t
+        t.TicketID === ticket.TicketID ? { ...t, ECStatus: 'Approved' } : t
       );
       setEcTickets(updatedTickets);
       setIsModalOpen(false);
@@ -52,10 +50,10 @@ const EcTicketsTable = () => {
       const { error } = await supabase
         .from('EC_Ticket')
         .update({ ECStatus: 'Disapproved' })
-        .eq('TicketID_E', ticket.TicketID_E);
+        .eq('TicketID', ticket.TicketID);
       if (error) throw error;
       const updatedTickets = ecTickets.map((t) =>
-        t.TicketID_E === ticket.TicketID_E ? { ...t, ECStatus: 'Disapproved' } : t
+        t.TicketID === ticket.TicketID ? { ...t, ECStatus: 'Disapproved' } : t
       );
       setEcTickets(updatedTickets);
       setIsModalOpen(false);
@@ -77,8 +75,8 @@ const EcTicketsTable = () => {
         </thead>
         <tbody>
           {ecTickets.map((ticket) => (
-            <tr key={ticket.TicketID_E}>
-              <td>{ticket.TicketID_E}</td>
+            <tr key={ticket.TicketID}>
+              <td>{ticket.TicketID}</td>
               <td>{ticket.UserId_E}</td>
               <td>{ticket.ECStatus}</td>
               <td>
