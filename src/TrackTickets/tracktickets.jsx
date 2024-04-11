@@ -222,9 +222,9 @@ const App = () => {
 
   // Toggle folder open/close
   function toggleFolder(folder) {
-    setOpenFolders(prevOpenFolders => ({
+    setOpenFolders((prevOpenFolders) => ({
       ...prevOpenFolders,
-      [folder]: !prevOpenFolders[folder]
+      [folder]: !prevOpenFolders[folder],
     }));
   }
 
@@ -329,7 +329,7 @@ ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root"),
 );
 
 export default App;
