@@ -4,7 +4,7 @@ import supabase from '../Config/supabaseClient';
 
 const ServiceIssueForm = () => {
   // Define a list of service names
-  const serviceNames = ["QMPlus", "MySis", "Q-Review", "Outlook", "QM GitHub", "JupyterHub", "Other"]; // Update this list as needed
+  const serviceNames = ["QMPlus", "Q-Review", "Outlook", "QM GitHub", "JupyterHub", "Other"]; // Update this list as needed
   const UserID = sessionStorage.getItem('userId'); //grab Userid, Change 1
 
   const handleFormSubmit = async (event) => {
