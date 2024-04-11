@@ -105,7 +105,7 @@ const App = () => {
                 <th>Module Code</th>
                 <th>Floor</th>
                 <th>Computer ID</th>
-                <th>Application Name</th>
+                {/* <th>Application Name</th> */}
                 <th>Computer Architecture</th>
                 <th>Description</th>
               </tr>
@@ -117,7 +117,7 @@ const App = () => {
                   <td>{record['Module Code']}</td>
                   <td>{record.Floor}</td>
                   <td>{record['Computer ID']}</td>
-                  <td>{record['Application Name']}</td>
+                  {/* <td>{record['Application Name']}</td> */}
                   <td>{record['Computer Architecture']}</td>
                   <td>{record.Description}</td>
                 </tr>
@@ -135,7 +135,7 @@ const App = () => {
             <thead>
               <tr>
                 <th>Ticket ID</th>
-                <th>Service ID</th>
+                {/* <th>Service ID</th> */}
                 <th>Service Name</th>
                 <th>Description</th>
               </tr>
@@ -144,7 +144,7 @@ const App = () => {
               {serviceIssues.map(record => (
                 <tr key={record.TicketID}>
                   <td>{record.TicketID}</td>
-                  <td>{record['Service ID']}</td>
+                  {/* <td>{record['Service ID']}</td> */}
                   <td>{record['Service Name']}</td>
                   <td>{record.Description}</td>
                 </tr>

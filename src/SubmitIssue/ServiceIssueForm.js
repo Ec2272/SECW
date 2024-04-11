@@ -34,10 +34,11 @@ const ServiceIssueForm = () => {
         <div className='form-group'>
           <label>Service Name</label>
           <select name="serviceName" required>
+            <option value="">Choose Service</option>
             {serviceNames.map(name => (
               <option value={name} key={name}>{name}</option>
             ))}
-          </select>
+          </select>        
         </div>
         <div className='form-group'>
           <textarea name="description" placeholder="Description" required />
