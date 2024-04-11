@@ -13,7 +13,7 @@ const EcTicketsTable = () => {
       try {
         const { data, error } = await supabase
           .from('EC_Ticket')
-          .select('TicketID, UserId_E, ECStatus');
+          .select('*');
         if (error) throw error;
         setEcTickets(data);
       } catch (error) {
@@ -68,6 +68,10 @@ const EcTicketsTable = () => {
         <thead>
           <tr>
             <th>Ticket ID</th>
+            <th>Module Code</th>
+            <th>Assessment Type</th>
+            <th>Description</th>
+            <th>Supporting Evidence</th>
             <th>Student ID</th>
             <th>Status</th>
             <th>Actions</th>
@@ -77,6 +81,10 @@ const EcTicketsTable = () => {
           {ecTickets.map((ticket) => (
             <tr key={ticket.TicketID}>
               <td>{ticket.TicketID}</td>
+              <td>{ticket['Module Code']}</td>
+              <td>{ticket['Assessment Type']}</td>
+              <td>{ticket.Description}</td>
+              <td>{ticket['Supporting Evidence']}</td>
               <td>{ticket.UserId_E}</td>
               <td>{ticket.ECStatus}</td>
               <td>
