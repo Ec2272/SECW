@@ -70,30 +70,25 @@ const IssueForm = () => {
             <option value="ECS518U">ECS518U</option>
             <option value="ECS529U">ECS529U</option>
           </select>          
-          {/* {/* //   <div className="form-group">
-          //   <label>Module Code</label>
-          //   <select name="labName" required>
-          //     <option value="">Select Module Code</option>
-          //     <option value="ECS506U">ECS506U</option>
-          //     <option value="ECS524U">ECS524U</option>
-          //     <option value="ECS522U">ECS522U</option>
-          //     <option value="ECS505U"> ECS505U</option>
-          //     <option value="ECS518U"> ECS518U</option>
-          //     <option value="ECS529U"> ECS529U</option>
-          //     </select>
-          //    </div> */}
         </div>
+
         <div className="form-group">
           <label>Assessment Type:</label>
-          <input
+          <select
             name="assessmentType"
-            type="text"
-            placeholder="Assessment Type"
             value={assessmentType}
             onChange={(e) => setAssessmentType(e.target.value)}
             required
-          />
+          >
+            <option value="">Select Assessment Type</option>
+            <option value="OnlineExam">Online Exam</option>
+            <option value="IndividualAssessment">Individual Assessment</option>
+            <option value="Lab">Lab</option>
+            <option value="Viva">Viva</option>
+            <option value="QMPlusQuiz">QMPlus Quiz</option>
+          </select>          
         </div>
+
         <div className="form-group">
           <label>Description:</label>
           <textarea
