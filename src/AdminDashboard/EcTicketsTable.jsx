@@ -67,11 +67,12 @@ const EcTicketsTable = () => {
       <table>
         <thead>
           <tr>
+          {/* TicketID, Description, StudentID, Status, Actions */}
             <th>Ticket ID</th>
-            <th>Module Code</th>
-            <th>Assessment Type</th>
+            {/* <th>Module Code</th> */}
+            {/* <th>Assessment Type</th> */}
             <th>Description</th>
-            <th>Supporting Evidence</th>
+            {/* <th>Supporting Evidence</th> */}
             <th>Student ID</th>
             <th>Status</th>
             <th>Actions</th>
@@ -81,15 +82,15 @@ const EcTicketsTable = () => {
           {ecTickets.map((ticket) => (
             <tr key={ticket.TicketID}>
               <td>{ticket.TicketID}</td>
-              <td>{ticket['Module Code']}</td>
-              <td>{ticket['Assessment Type']}</td>
+              {/* <td>{ticket['Module Code']}</td>
+              <td>{ticket['Assessment Type']}</td> */}
               <td>{ticket.Description}</td>
-              <td>{ticket['Supporting Evidence']}</td>
+              {/* <td>{ticket['Supporting Evidence']}</td> */}
               <td>{ticket.UserId_E}</td>
               <td>{ticket.ECStatus}</td>
               <td>
                 <button className="info-button" onClick={() => handleMoreInfoClick(ticket)}>
-                  More info
+                  More info for EC{ticket.TicketID}
                 </button>
               </td>
             </tr>

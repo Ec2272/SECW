@@ -56,14 +56,32 @@ const IssueForm = () => {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Module Code:</label>
-          <input
-            name="moduleCode"
-            type="text"
-            placeholder="Module Code"
-            value={moduleCode}
-            onChange={(e) => setModuleCode(e.target.value)}
+          <select 
+            name="moduleCode" 
+            value={moduleCode} 
+            onChange={(e) => setModuleCode(e.target.value)} 
             required
-          />
+          >
+            <option value="">Select Module Code</option>
+            <option value="ECS506U">ECS506U</option>
+            <option value="ECS524U">ECS524U</option>
+            <option value="ECS522U">ECS522U</option>
+            <option value="ECS505U">ECS505U</option>
+            <option value="ECS518U">ECS518U</option>
+            <option value="ECS529U">ECS529U</option>
+          </select>          
+          {/* {/* //   <div className="form-group">
+          //   <label>Module Code</label>
+          //   <select name="labName" required>
+          //     <option value="">Select Module Code</option>
+          //     <option value="ECS506U">ECS506U</option>
+          //     <option value="ECS524U">ECS524U</option>
+          //     <option value="ECS522U">ECS522U</option>
+          //     <option value="ECS505U"> ECS505U</option>
+          //     <option value="ECS518U"> ECS518U</option>
+          //     <option value="ECS529U"> ECS529U</option>
+          //     </select>
+          //    </div> */}
         </div>
         <div className="form-group">
           <label>Assessment Type:</label>
